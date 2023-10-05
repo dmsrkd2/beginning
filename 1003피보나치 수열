@@ -1,0 +1,41 @@
+
+
+
+def fibonacci0(n,memory):
+   
+    if memory[0][n]!= 0:
+        return memory[0][n]
+    else:
+        if n==0:
+            memory[0][n]=1
+        elif n==1:
+            memory[0][n]=0
+        else:
+            memory[0][n]=fibonacci0(n-1,memory)+ fibonacci0(n-2,memory)
+    return memory[0][n]
+def fibonacci1(n,memory):
+    if memory[1][n]!=0:
+        return memory[1][n]
+    else:
+        if n==0:
+            memory[1][n]=0
+        elif n==1:
+            memory[1][n]=1
+        else:
+            memory[1][n]=fibonacci1(n-1,memory)+ fibonacci1(n-2,memory)
+    return memory[1][n]
+
+
+num=int(input())
+col=50
+row=2
+memory=[[0 for j in range(col)] for i in range(row)]
+for i in range(num):
+    a=int(input())
+    result1=fibonacci0(a,memory)
+    result2=fibonacci1(a,memory)
+    print(result1, result2)
+
+
+
+
