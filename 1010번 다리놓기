@@ -1,0 +1,37 @@
+//내 코드(재귀함수와 dp를 이용해서 풀었다)
+
+def comb(n,r,memory):
+    if memory[n][r] != 0:
+        return memory[n][r]
+    if n==r or r==0:
+        return 1
+    memory[n][r]=comb(n-1,r-1,memory)+comb(n-1,r,memory)
+    return memory[n][r]
+    
+
+test=int(input())
+west=0
+east=0
+
+memory=[[0 for j in range(30)] for i in range(30)]
+for _ in range(test):
+    west,east=map(int,input().split())
+    result=comb(east,west,memory)
+    print(result)
+
+
+//다른 풀이(그냥 조합의 식을 그대로 풀어서 썼다. range의 사용법에 주목할 것)
+import sys
+input = sys.stdin.readline
+
+T = int(input())
+for i in range(T):
+    N, M = map(int,input().split())
+    a = 1
+    b = 1
+    for i in range(M, M-N,-1):
+        a *= i
+    
+    for j in range(N,1,-1):
+        b *= j
+    print(int(a/b))
