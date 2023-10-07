@@ -1,0 +1,24 @@
+test=int(input())
+for i in range(test):
+    a,b=map(int,input().split())
+    temp=a
+    memory=[0 for _ in range(b)]
+    memory[0]=a
+    breaker=False
+    mem=1
+    for j in range(1,b,1):
+        temp=temp*a
+        temp=list(map(int,str(temp)))
+        temp=temp[len(temp)-1]
+        memory[j]=temp
+        for _ in range(1,j,1):
+            if memory[_]==memory[0]:
+                breaker=True
+                mem=_
+                break
+        if breaker==True:
+            break
+    if mem==1:
+        print(memory[0])
+    elif mem!=0:
+        print(memory[b%mem]-1)
