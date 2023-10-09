@@ -1,4 +1,4 @@
-//내 풀이
+//내 풀이(따로 함수를 구현하여 계산, 하나하나 경우를 나눔)
 
 import sys
 import math
@@ -29,3 +29,20 @@ for _ in range(test):
         else:
             continue
     print(count)
+
+
+//다른 사람 풀이(경우를 안나누고 곱한 값이 0보다 작다는 걸로 식을 간소화함)
+
+import sys
+I=sys.stdin.readline
+
+T=int(I())
+for _ in range(T):
+    a=0
+    x1,y1,x2,y2=map(int,I().split())
+    N=int(I())
+    for _ in range(N):
+        cx,cy,r=map(int,I().split())
+        if ((cx-x1)**2+(cy-y1)**2-r**2)*((cx-x2)**2+(cy-y2)**2-r**2)<0:
+            a+=1
+    print(a)
