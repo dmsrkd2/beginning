@@ -1,0 +1,31 @@
+//내 풀이
+
+import sys
+import math
+
+def checkcir(x,y,cenx,ceny,rad):
+    if math.sqrt((cenx-x)**2+(ceny-y)**2)>rad:
+        return False
+    else:
+        return True
+    
+
+
+test=int(sys.stdin.readline())
+for _ in range(test):
+    begx,begy,arrx,arry=map(int,sys.stdin.readline().split())
+    planet=int(sys.stdin.readline())
+    count=0
+    for i in range(planet):
+        cenx, ceny,rad=map(int,sys.stdin.readline().split())
+        beg_in=checkcir(begx,begy,cenx,ceny,rad)
+        arr_in=checkcir(arrx,arry,cenx,ceny,rad)
+        if beg_in==False and arr_in==False:
+            continue
+        elif beg_in==False and arr_in==True:
+            count+=1
+        elif beg_in==True and arr_in==False:
+            count+=1
+        else:
+            continue
+    print(count)
