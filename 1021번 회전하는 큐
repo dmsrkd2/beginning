@@ -1,0 +1,11 @@
+quesize, num = map(int, input().split())
+que = list(range(1, quesize + 1))
+popnum = list(map(int, input().split()))
+count = 0
+
+for i in range(num):
+    index = que.index(popnum[i])
+    count += min(index, len(que) - index)  
+    que = que[index + 1:] + que[:index]
+        
+print(count
