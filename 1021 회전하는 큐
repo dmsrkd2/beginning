@@ -1,0 +1,19 @@
+quesize, num=map(int,input().split())
+que=list(range(1,quesize+1))
+popnum=list(map(int,input().split()))
+firloc=0
+lastloc=len(que)
+count=0
+for i in range(num):
+    if abs(firloc-que.index(popnum[i]))<=abs(lastloc-que.index(popnum[i])):
+        count=abs(firloc-que.index(popnum[i]))
+
+    else:
+        count=abs(lastloc-que.index(popnum[i]))
+    firloc=que.index(popnum[i])
+    que.pop(firloc)
+    lastloc=len(que)
+print(count)
+    
+    
+    
