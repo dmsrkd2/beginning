@@ -1,0 +1,22 @@
+//내 풀이
+
+num=int(input())
+count=1
+pre=64
+total=64
+while total>num:
+    if pre>0:
+        pre=pre//2
+        if total-pre>=num:
+            total=total-pre
+        else:
+            count+=1
+print(count)
+
+//문제를 그대로 코드로 옮겨적음
+
+
+//다른사람 풀이
+print(int(input()).bit_count())
+//bit_count() 는 어떤 수의 이진표현의 1의 개수를 반환
+//문제 자체가 입력값을 이진수로 표현하는거라 한줄에 끝 
